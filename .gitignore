@@ -1,0 +1,47 @@
+# Compilação (binários, objetos)
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.so
+*.dll
+
+# Arquivo de execução comum em Linux
+a.out
+
+# Pastas de build comuns
+/build/
+/bin/
+/debug/
+/release/
+
+# Arquivos de log
+*.log
+
+# Dumps de compiladores
+core
+*.stackdump
+
+# Arquivos temporários de editores
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+*.old
+
+# Arquivos do VS Code (caso use)
+.vscode/
+
+# Arquivos do CLion / JetBrains
+.idea/
+
+# Arquivos do ctags / gtags
+tags
+GTAGS
+GRTAGS
+GPATH
+
+# Arquivos de cache do Zsh ou Shell (caso teste scripts)
+.zcompdump*
