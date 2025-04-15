@@ -1,7 +1,21 @@
 #ifndef ESTATISTICA_H
 #define ESTATISTICA_H
 
-void estatisticas(int numero[10], int i, int q, int soma, int maior, int menor, float media);
+typedef struct {
+
+   int numeros[10];
+   int i;
+   int quantidade;
+   int soma;
+   int maior;
+   int menor;
+   float media;
+   int impares;
+   int pares;
+   int multiplo3;
+} Estatisticas;
+
+void calcular_estatisticas(Estatisticas *dados);
 
 #endif
 

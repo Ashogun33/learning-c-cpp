@@ -1,40 +1,31 @@
 #include <stdio.h>
 #include "estatisticas.h"
 
-void estatisticas(int numero[10], int i, int q, int soma, int maior, int menor, float media) {
+void calcular_estatisticas(Estatisticas *dados) {
+  if (dados->quantidade == 0)return;
 
-  media = (float)soma/q;
-  maior = numero[0];
-  menor = numero[0];
-  int numPar = 0;
-  int numImpar = 0;
-  int multiplo3 = 0;
+  dados->maior = dados->numeros[0];
+  dados->menor = dados->numeros[0];
 
-  for (i = 0; i < q; i++) {
-    if (numero[i] % 2 == 0) {
-      numPar += 1;
-    }
-    if (numero[i] % 2 != 0) {
-      numImpar += 1;
-    }
-    if (numero[i] % 3 == 0) {
-      multiplo3 += 1;
+  for (int i = 0; i < dados->quantidade; i++) {
+    int valor = dados->numeros[i];
+    if (valor % 2 == 0) dados->pares++;
+    else dados->impares++;
     
-    }
-    if (maior < numero[i]) {
-      maior = numero[i];
-    }
-    if (menor > numero[i]) {
-      menor = numero[i];
-    }
+    if (valor % 3 == 0) dados->multiplo3++;
+    if (valor > dados->maior) dados->maior = valor;
+    if (valor < dados->menor) dados->menor = valor;
   }
   
-  printf("\nA quantidade de números digitados é: %d", q);
-  printf("\nA quantidade de números pares é: %d", numPar);
-  printf("\nA quantidade de números impares é: %d", numImpar);
-  printf("\nA quantidade de números divisiveís por 3 é: %d", multiplo3);
-  printf("\nA soma dos números é: %d", soma);
-  printf("\nA média é: %.2f", media);
-  printf("\nO maior número é: %d", maior);
-  printf("\nO menor número é: %d", menor);
+  dados->media = (float)dados->soma / dados->quantidade;
+
+  printf("\nA quantidade de números digitados é: %d", dados->quantidade);
+  printf("\nA quantidade de números pares é: %d", dados->pares);
+  printf("\nA quantidade de números impares é: %d", dados->impares);
+  printf("\nA quantidade de números divisiveís por 3 é: %d", dados->multiplo3);
+  printf("\nA soma dos números é: %d", dados->soma);
+  printf("\nA média é: %.2f", dados->media);
+  printf("\nO maior número é: %d", dados->maior);
+  printf("\nO menor número é: %d", dados->menor);
+
 }

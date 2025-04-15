@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include "estatisticas.h"
 
+//Função Principal do contador de digitos ordenado.
+
 int main() {
-  int numero[10] = {0};
-  int n = 1;
-  int i =0, q = 0, soma = 0, maior = 0, menor = 0;
-  float media = 0;
   
-  while (n != 0) {
+  Estatisticas dados = {0};
+  int n = 1;
+    
+  while (n != 0 && dados.quantidade < 10) {
     printf("Digite um número inteiro: ");
     scanf("%d", &n);
 
@@ -15,14 +16,12 @@ int main() {
       break;
     }
 
-    numero[i] = n;
-    i++;
-    q += 1;
-    soma += n;
+    dados.numeros[dados.quantidade++] = n;
+    dados.soma += n;
   }
-    estatisticas(numero, i, q, soma, maior, menor, media);
+  
+  calcular_estatisticas(&dados);
 
 return 0;
 
 }
-
